@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .quiz-container {
+            width: 90%;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+        .timer {
+            color: red;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            display: none;
+        }
+        .incorrect {
+            color: red;
+        }
+        .correct {
+            color: green;
+        }
+        .question-result {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Cardiology Quiz</h1>
+        <div class="timer" id="timer">Time remaining: 60 seconds</div>
+
+        <div class="question" id="question-1">
+            <p>1- Which of the following is the MOST common cause of native valve infective Endocarditis in the community?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="Coagulase-negative staphylococci"> Coagulase-negative staphylococci</label>
+                <label><input type="radio" name="q1" value="Coagulase-positive staphylococci"> Coagulase-positive staphylococci</label>
+                <label><input type="radio" name="q1" value="Non-enterococcal streptococci"> Non-enterococcal streptococci</label>
+                <label><input type="radio" name="q1" value="Enterococci"> Enterococci</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-2">
+            <p>2- All of the following are potential complications of an atrial septal defect in Adults EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Air embolism from a central venous catheter"> Air embolism from a central venous catheter</label>
+                <label><input type="radio" name="q2" value="Embolic cerebrovascular accident."> Embolic cerebrovascular accident.</label>
+                <label><input type="radio" name="q2" value="Pulmonary arterial hypertension"> Pulmonary arterial hypertension</label>
+                <label><input type="radio" name="q2" value="Unstable angina"> Unstable angina</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-3">
+            <p>3- The husband of a 68-year-old woman with congestive heart failure is concerned because his wife appears to stop breathing for periods of time when she sleeps. He has noticed that she stops breathing for approximately 10 seconds and then follows this with a similar period of hyperventilation. This does not wake her from sleep. She does not snore. She feels well rested in the morning but is very dyspneic with even mild activity. What is your Next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="Electroencephalography"> Electroencephalography</label>
+                <label><input type="radio" name="q3" value="Maximize heart failure management"> Maximize heart failure management</label>
+                <label><input type="radio" name="q3" value="Nasal continuous positive airway pressure (CPAP) during sleep"> Nasal continuous positive airway pressure (CPAP) during sleep</label>
+                <label><input type="radio" name="q3" value="Obtain a sleep study"> Obtain a sleep study</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-4">
+            <p>4- All the following are TRUE about cardiac valve replacement EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="Bioprosthetic valve replacement is preferred to mechanical valve replacement in younger patients because of the superior durability of the valve."> Bioprosthetic valve replacement is preferred to mechanical valve replacement in younger patients because of the superior durability of the valve.</label>
+                <label><input type="radio" name="q4" value="Bioprosthetic valves have a low incidence of thromboembolic complications."> Bioprosthetic valves have a low incidence of thromboembolic complications.</label>
+                <label><input type="radio" name="q4" value="The risk of thrombosis with mechanical valve replacement is higher in the mitral position than in the aortic position."> The risk of thrombosis with mechanical valve replacement is higher in the mitral position than in the aortic position.</label>
+                <label><input type="radio" name="q4" value="Mechanical valves are relatively contraindicated in patients who wish to Become pregnant."> Mechanical valves are relatively contraindicated in patients who wish to Become pregnant.</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-5">
+            <p>5- A 20-year-old basketball player is seen for evaluation prior to beginning another season of competitive sports. A harsh systolic murmur is heard at the left lower sternal border. Which of the following manoeuvres will enhance this murmur if hypertrophic cardiomyopathy is the underlying cause?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="Hand grip"> Hand grip</label>
+                <label><input type="radio" name="q5" value="Lying left side down"> Lying left side down</label>
+                <label><input type="radio" name="q5" value="Squatting"> Squatting</label>
+                <label><input type="radio" name="q5" value="Valsalva manoeuvre"> Valsalva manoeuvre</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-6">
+            <p>6- Which of the following infectious agents have been associated with the development of inflammatory myocarditis?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="Coxsackie virus"> Coxsackie virus</label>
+                <label><input type="radio" name="q6" value="Diphtheria"> Diphtheria</label>
+                <label><input type="radio" name="q6" value="Q fever"> Q fever</label>
+                <label><input type="radio" name="q6" value="All of the above"> All of the above</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-7">
+            <p>7- You have a large number of patients in your practice with hypertension. If the diagnosis in an individual is essential hypertension, which of the following statements is correct?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="over 95% of patients are salt-sensitive"> over 95% of patients are salt-sensitive</label>
+                <label><input type="radio" name="q7" value="it comprises about 90% of hypertensives in general population"> it comprises about 90% of hypertensives in general population</label>
+                <label><input type="radio" name="q7" value="renin levels are invariably high"> renin levels are invariably high</label>
+                <label><input type="radio" name="q7" value="women have a poorer prognosis"> women have a poorer prognosis</label>
+                <label><input type="radio" name="q7" value="alcohol reduces risk"> alcohol reduces risk</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-8">
+            <p>8- Those can precipitate heart failure in pre-existing heart disease EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="Beta blockers"> Beta blockers</label>
+                <label><input type="radio" name="q8" value="Non steroid anti-inflammatory drugs"> Non steroid anti-inflammatory drugs</label>
+                <label><input type="radio" name="q8" value="Corticosteroids"> Corticosteroids</label>
+                <label><input type="radio" name="q8" value="Angiotensin converting enzyme inhibitors"> Angiotensin converting enzyme inhibitors</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-9">
+            <p>9- A 49-year-old man has his serum lipids measured. Which pattern suggests the lowest risk for CAD?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="total cholesterol 215 mg/dL, high-density lipoprotein (HDL) cholesterol 28 mg/dL"> total cholesterol 215 mg/dL, high-density lipoprotein (HDL) cholesterol 28 mg/dL</label>
+                <label><input type="radio" name="q9" value="total cholesterol 215 mg/dL, HDL cholesterol 43 mg/dL"> total cholesterol 215 mg/dL, HDL cholesterol 43 mg/dL</label>
+                <label><input type="radio" name="q9" value="total cholesterol 180 mg/dL, HDL cholesterol 29 mg/dL"> total cholesterol 180 mg/dL, HDL cholesterol 29 mg/dL</label>
+                <label><input type="radio" name="q9" value="total cholesterol 202 mg/dL, HDL cholesterol 45 mg/dL"> total cholesterol 202 mg/dL, HDL cholesterol 45 mg/dL</label>
+                <label><input type="radio" name="q9" value="total cholesterol 225 mg/dL, HDL cholesterol 40 mg/dL"> total cholesterol 225 mg/dL, HDL cholesterol 40 mg/dL</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-10">
+            <p>10- All the following are causes of left bundle branch block EXCEPT:</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="Normal variant"> Normal variant</label>
+                <label><input type="radio" name="q10" value="Coronary artery disease"> Coronary artery disease</label>
+                <label><input type="radio" name="q10" value="Aortic valve disease"> Aortic valve disease</label>
+                <label><input type="radio" name="q10" value="Cardiomyopathy"> Cardiomyopathy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-11">
+            <p>11- A 52-year-old man with a 30-pack-year history of cigarette smoking. He had high cholesterol and mild hypertension for which he has never been treated. He had a myocardial infarction (MI) 6 months ago. His post-MI course has been uncomplicated, his exercise stress test was satisfactory, and he has experienced no subsequent chest pain. His medications. Include aspirin 150 mg/ day. Physical examination is normal except for a fourth heart sound. Which of the following is the MOST appropriate next step in management to prevent significant morbidity and mortality?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="Add beta blocker"> Add beta blocker</label>
+                <label><input type="radio" name="q11" value="Add enalapril"> Add enalapril</label>
+                <label><input type="radio" name="q11" value="Add nifedipine"> Add nifedipine</label>
+                <label><input type="radio" name="q11" value="Increase the aspirin"> Increase the aspirin</label>
+                <label><input type="radio" name="q11" value="Prescribe nitroglycerin"> Prescribe nitroglycerin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-12">
+            <p>12- A 27-year-old female is experiencing recurrent attacks of rapid regular palpitation. She did ECG in between attacks. She was diagnosed as Wolff-Parkinson White syndrome. Which one of the following ECG changes is associated with Wolff-Parkinson White syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="Hyperacute T waves"> Hyperacute T waves</label>
+                <label><input type="radio" name="q12" value="J waves"> J waves</label>
+                <label><input type="radio" name="q12" value="Long QT"> Long QT</label>
+                <label><input type="radio" name="q12" value="P wave inversion"> P wave inversion</label>
+                <label><input type="radio" name="q12" value="Short PR interval"> Short PR interval</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-13">
+            <p>13- A 56-year-old woman with a long history of untreated hypertension is brought to the ER because of severe headache and confusion. The patient is oriented to person, but NOT to time or place. Her blood pressure is 230/140 mm Hg, pulse is 86/min, and RR is 18/min. Funduscopic examination reveals optic disk edema, and a dipstick test shows protein in the urine. What is MOST appropriate treatment?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="Clonidine"> Clonidine</label>
+                <label><input type="radio" name="q13" value="Esmolol"> Esmolol</label>
+                <label><input type="radio" name="q13" value="Furosemide"> Furosemide</label>
+                <label><input type="radio" name="q13" value="Hydralazine"> Hydralazine</label>
+                <label><input type="radio" name="q13" value="Sodium nitroprusside"> Sodium nitroprusside</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-14">
+            <p>14- A 32-year-old man presents for routine evaluation. He has no symptoms but has noticed some new “nodules” on his legs. Physical examination reveals lumps on his Achilles tendon, yellow lesions around his eyes, and pigmentation of his iris. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="familial hyperlipidemia"> familial hyperlipidemia</label>
+                <label><input type="radio" name="q14" value="diabetes"> diabetes</label>
+                <label><input type="radio" name="q14" value="myxedema"> myxedema</label>
+                <label><input type="radio" name="q14" value="chronic renal disease"> chronic renal disease</label>
+                <label><input type="radio" name="q14" value="an inherited defect of glycogen utilization"> an inherited defect of glycogen utilization</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-15">
+            <p>15- A 36-year-old man is seen because of palpitations. He admits to precordial discomfort, weakness, and anxiety. His pulse is 150/min, and his blood pressure is 124/70 mm Hg. Heart sounds are normal. Carotid sinus pressure gradually changes the rate to 75/min, but when released, the pulse rate returns to 150/min. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="atrial flutter with 2:1 block"> atrial flutter with 2:1 block</label>
+                <label><input type="radio" name="q15" value="paroxysmal atrial tachycardia with 2:1 block"> paroxysmal atrial tachycardia with 2:1 block</label>
+                <label><input type="radio" name="q15" value="sinus arrhythmia"> sinus arrhythmia</label>
+                <label><input type="radio" name="q15" value="atrial fibrillation"> atrial fibrillation</label>
+                <label><input type="radio" name="q15" value="nodal tachycardia"> nodal tachycardia</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-16">
+            <p>16- A 62-year-old man presents with episodic substernal chest tightness, occurs after physical exertion, and is relieved promptly by rest. The patient has noted that the amount of activity sufficient to trigger the pain is relatively constant, such as climbing three flights of stairs or walking uphill for a few minutes. An ECG recorded at rest, however, fails to show any abnormalities. Which of the following is the MOST appropriate next step in diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="Ambulatory ECG monitoring"> Ambulatory ECG monitoring</label>
+                <label><input type="radio" name="q16" value="Coronary arteriography"> Coronary arteriography</label>
+                <label><input type="radio" name="q16" value="Echocardiography"> Echocardiography</label>
+                <label><input type="radio" name="q16" value="Exercise ECG"> Exercise ECG</label>
+                <label><input type="radio" name="q16" value="Myocardial perfusion scintigraphy"> Myocardial perfusion scintigraphy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-17">
+            <p>17- A 45-year-old woman presents for a Check-Up visit. She has no complaints but has a history of diabetes and a family history of hypertension. On physical examination, the patient's blood pressure is 150/100 mm Hg. Laboratory results were normal. Which of the following agents would be MOST appropriate for the management?</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="Atenolol"> Atenolol</label>
+                <label><input type="radio" name="q17" value="Captopril"> Captopril</label>
+                <label><input type="radio" name="q17" value="Furosemide"> Furosemide</label>
+                <label><input type="radio" name="q17" value="Hydrochlorothiazide"> Hydrochlorothiazide</label>
+                <label><input type="radio" name="q17" value="Isordil"> Isordil</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-18">
+            <p>18- A 64-year-old man is brought to the ER because of sudden onset of tearing chest pain radiating to the back in the interscapular region. On examination, he is conscious however, he appears in acute distress, is diaphoretic, and is breathing with difficulty. His temp. is 37.1"C, BP is 175/70 mm Hg, pulse is 106/min, and RR is 25/min. There is no jugular vein distention or hepatomegaly. Auscultation reveals a diastolic murmur along the left sternal border, the lungs are clear to auscultation. The ECG shows no signs of myocardial ischemia. A chest x-ray film demonstrates widening of the mediastinum. Which of the following is the MOST likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="Acute mediastinitis"> Acute mediastinitis</label>
+                <label><input type="radio" name="q18" value="Acute pericarditis"> Acute pericarditis</label>
+                <label><input type="radio" name="q18" value="Aortic dissection"> Aortic dissection</label>
+                <label><input type="radio" name="q18" value="Cardiac tamponade"> Cardiac tamponade</label>
+                <label><input type="radio" name="q18" value="Myocardial infarction"> Myocardial infarction</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-19">
+            <p>19- A 65-year-old man used to smoke 50 cigarettes a day for 40 years. He had increasing dyspnea for several years, but no cough. Chest X-ray shows increased lung size along with flattening of the diaphragms. Over the next several years he developed worsening peripheral edema. His temp. is 36.7 °C, Pulse 80/min, RR 15/min, and BP 120/80 mm Hg. What is the MOST likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="Constrictive pericarditis"> Constrictive pericarditis</label>
+                <label><input type="radio" name="q19" value="Left ventricular aneurysm"> Left ventricular aneurysm</label>
+                <label><input type="radio" name="q19" value="Mitral valve stenosis"> Mitral valve stenosis</label>
+                <label><input type="radio" name="q19" value="Non-bacterial thrombotic endocarditis"> Non-bacterial thrombotic endocarditis</label>
+                <label><input type="radio" name="q19" value="Right ventricular hypertrophy"> Right ventricular hypertrophy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-20">
+            <p>20- A 60-year-old diabetic man presented to the ER by central chest pain at rest of 4 hours duration. Clinical examination revealed pulse 100 b/min. regular, Bl. pressure 100/60. Chest and cardiac examination are unremarkable. ECG showed regular sinus rhythm without ST segment elevation. Serum troponin is negative. What is the MOST probable diagnosis of this patient?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="STEMI (ST elevation myocardial infarction)"> STEMI (ST elevation myocardial infarction)</label>
+                <label><input type="radio" name="q20" value="NSTEMI (Non-ST elevation myocardial infarction)"> NSTEMI (Non-ST elevation myocardial infarction)</label>
+                <label><input type="radio" name="q20" value="Stable angina"> Stable angina</label>
+                <label><input type="radio" name="q20" value="Unstable angina"> Unstable angina</label>
+                <label><input type="radio" name="q20" value="Pericarditis"> Pericarditis</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-21">
+            <p>21- A 60-year-old man had an anterior myocardial infarction 3 months ago. He currently is asymptomatic and has normal vital signs and a normal physical examination. He is on an antiplatelet agent and an ACE inhibitor. What other category of medication would typically be prescribed for secondary prevention of myocardial infarction?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="Alpha-blocker"> Alpha-blocker</label>
+                <label><input type="radio" name="q21" value="Beta-blocker"> Beta-blocker</label>
+                <label><input type="radio" name="q21" value="Calcium-channel blocker"> Calcium-channel blocker</label>
+                <label><input type="radio" name="q21" value="Nitrates"> Nitrates</label>
+                <label><input type="radio" name="q21" value="Naproxen sodium"> Naproxen sodium</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-22">
+            <p>22- You are seeing a 49-year-old man with a known history of hypercholesterolemia and hypertension who has had recent complaint of chest pain. It is not associated with activity but will occur intermittently throughout the day. Which of the following is the BEST to describe his case?</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="Atypical angina"> Atypical angina</label>
+                <label><input type="radio" name="q22" value="Cardiac neurosis"> Cardiac neurosis</label>
+                <label><input type="radio" name="q22" value="Classic angina"> Classic angina</label>
+                <label><input type="radio" name="q22" value="Esophageal spasm"> Esophageal spasm</label>
+                <label><input type="radio" name="q22" value="GERD"> GERD</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-23">
+            <p>23- Which one of the following is characterised of Digoxin toxicity?</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="Atrial flutter"> Atrial flutter</label>
+                <label><input type="radio" name="q23" value="Mobitz I heart block"> Mobitz I heart block</label>
+                <label><input type="radio" name="q23" value="Mobitz II heart block"> Mobitz II heart block</label>
+                <label><input type="radio" name="q23" value="QT interval is shortened"> QT interval is shortened</label>
+                <label><input type="radio" name="q23" value="Ventricular bigeminy"> Ventricular bigeminy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-24">
+            <p>24- A 71-year-old patient presents to the Emergency Department with a 30-minute history of crushing central chest pain. ECG shows tall R Waves in V1-2. Which coronary territory is likely to be affected?</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="Anterolateral"> Anterolateral</label>
+                <label><input type="radio" name="q24" value="Anteroseptal"> Anteroseptal</label>
+                <label><input type="radio" name="q24" value="Inferior"> Inferior</label>
+                <label><input type="radio" name="q24" value="Lateral"> Lateral</label>
+                <label><input type="radio" name="q24" value="Posterior"> Posterior</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-25">
+            <p>25- A 55-year-old patient presents to you after a 3-day hospital stay for gradually increasing shortness of breath and leg swelling while away on a business trip. An echocardiogram shows an estimated ejection fraction of 38%. The patient likes to keep medications to a minimum. He is currently on aspirin and simvastatin. Which would be the MOST appropriate additional treatment?</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="Begin an ACE inhibitor and then add a beta-blocker on a scheduled basis."> Begin an ACE inhibitor and then add a beta-blocker on a scheduled basis.</label>
+                <label><input type="radio" name="q25" value="Begin digoxin plus furosemide on a scheduled basis."> Begin digoxin plus furosemide on a scheduled basis.</label>
+                <label><input type="radio" name="q25" value="Begin spironolactone on a scheduled basis."> Begin spironolactone on a scheduled basis.</label>
+                <label><input type="radio" name="q25" value="Begin furosemide plus nitroglycerin."> Begin furosemide plus nitroglycerin.</label>
+                <label><input type="radio" name="q25" value="Given his preferences, no other medication is needed."> Given his preferences, no other medication is needed.</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-26">
+            <p>26- Two weeks after hospital discharge for documented myocardial infarction, a 65-year-old is concerned about low-grade fever and stitching chest pain. There is no shortness of breath. Lungs are clear to auscultation and the heart is free of murmur, gallop, or rub. ECG is unchanged from the last one in the hospital. Which therapy is MOST Likely to be effective?</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="An anti-inflammatory agent"> An anti-inflammatory agent</label>
+                <label><input type="radio" name="q26" value="An anxiolytic agent"> An anxiolytic agent</label>
+                <label><input type="radio" name="q26" value="An increase in anti-anginal medication"> An increase in anti-anginal medication</label>
+                <label><input type="radio" name="q26" value="Antibiotics"> Antibiotics</label>
+                <label><input type="radio" name="q26" value="Anticoagulation with warfarin"> Anticoagulation with warfarin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-27">
+            <p>27- A 42-year-old white male smoker who presented with sudden onset of crushing chest pain, nausea, diaphoresis and shortness of breath. His ECG revealed ST segment elevation in the anterior leads. Cardiac enzymes were normal. Cardiac catheterization revealed 25% stenosis of the left anterior descending artery. No percutaneous intervention was performed. Which one of the following would reduce his risk of Similar episodes?</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="Beginning therapy with a beta-blocker."> Beginning therapy with a beta-blocker.</label>
+                <label><input type="radio" name="q27" value="Beginning therapy with a calcium-channel blocker."> Beginning therapy with a calcium-channel blocker.</label>
+                <label><input type="radio" name="q27" value="Beginning therapy with an ACE inhibitor."> Beginning therapy with an ACE inhibitor.</label>
+                <label><input type="radio" name="q27" value="Placement of a percutaneous drug-eluting coronary artery stent."> Placement of a percutaneous drug-eluting coronary artery stent.</label>
+                <label><input type="radio" name="q27" value="Placement of a percutaneous non-drug-eluting coronary artery stent."> Placement of a percutaneous non-drug-eluting coronary artery stent.</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-28">
+            <p>28- A 75-year-old male suffers an antero-septal myocardial infarction. Four hours after admission to the hospital his blood pressure is 65/40 mm Hg. A Swan-Ganz catheter is inserted into the pulmonary artery, and the pulmonary capillary wedge pressure is found to be 8 mm Hg. What is the BEST therapy in this instance?</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="Infusion of dopamine"> Infusion of dopamine</label>
+                <label><input type="radio" name="q28" value="Infusion of 5% dextrose"> Infusion of 5% dextrose</label>
+                <label><input type="radio" name="q28" value="Infusion of normal saline"> Infusion of normal saline</label>
+                <label><input type="radio" name="q28" value="Digoxin"> Digoxin</label>
+                <label><input type="radio" name="q28" value="Furosemide"> Furosemide</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-29">
+            <p>29- A 71-year-old woman with ischemic heart disease recently started taking amiodarone 200 mg orally daily for control of her atrial fibrillation. She has now been admitted to hospital 3 months later with episodes of dizziness and bradycardia (heart rate 48beats/min). The electrocardiogram shows a prolonged QT interval (530 ms). Which of her current regular medicines below is MOST likely to interact with amiodarone to cause the QT prolongation?</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="Clopidogrel"> Clopidogrel</label>
+                <label><input type="radio" name="q29" value="Moxifloxacin"> Moxifloxacin</label>
+                <label><input type="radio" name="q29" value="Nicorandil"> Nicorandil</label>
+                <label><input type="radio" name="q29" value="Simvastatin"> Simvastatin</label>
+                <label><input type="radio" name="q29" value="Thyroxin"> Thyroxin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-30">
+            <p>30- A 53-year-old male complains of fatigue, dyspnea, and orthopnea. Which one of the following would have the highest specificity For heart Failure?</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="A third heart sound (S3 gallop)"> A third heart sound (S3 gallop)</label>
+                <label><input type="radio" name="q30" value="Ankle edema"> Ankle edema</label>
+                <label><input type="radio" name="q30" value="Cardiomegaly on a chest radiograph"> Cardiomegaly on a chest radiograph</label>
+                <label><input type="radio" name="q30" value="Decreased BNP"> Decreased BNP</label>
+                <label><input type="radio" name="q30" value="Fine crackles"> Fine crackles</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-31">
+            <p>31- A 25-year-old man complains of left precordial chest pain that radiates to the left shoulder but not down the left arm. The pain is accentuated by inspiration and relieved by sitting up. The pain is accompanied by fever and chills. His blood pressure is 105/75 mm Hg, pulse 110/min and regular, and temperature 37.5°C. Aside from the tachycardia, there are no abnormal physical findings in the heart or lungs. The ECG shows ST-segment elevation in all leads except aVR. On the third hospital day, the patient’s blood pressure falls, JVP rises, with distant heart sounds and he goes into CHF. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="a second pulmonary embolus"> a second pulmonary embolus</label>
+                <label><input type="radio" name="q31" value="extension of a myocardial infarct"> extension of a myocardial infarct</label>
+                <label><input type="radio" name="q31" value="cardiac tamponade"> cardiac tamponade</label>
+                <label><input type="radio" name="q31" value="secondary bacterial infection"> secondary bacterial infection</label>
+                <label><input type="radio" name="q31" value="rupture of a chordae tendineae"> rupture of a chordae tendineae</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-32">
+            <p>32- A patient is admitted with pneumonia. A murmur is heard on examination. What finding points to mitral regurgitation?</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="Corrigan’s sign"> Corrigan’s sign</label>
+                <label><input type="radio" name="q32" value="Murmur louder on inspiration"> Murmur louder on inspiration</label>
+                <label><input type="radio" name="q32" value="Murmur louder over the right 2nd intercostal space midclavicular line"> Murmur louder over the right 2nd intercostal space midclavicular line</label>
+                <label><input type="radio" name="q32" value="Murmur louder with patient in left lateral position"> Murmur louder with patient in left lateral position</label>
+                <label><input type="radio" name="q32" value="Narrow pulse pressure"> Narrow pulse pressure</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-33">
+            <p>33- A 67-year-old man presents to accident and emergency with a 3-day History of shortness of breath. On examination, the patient has an irregular heartbeat with an overall rate of 140 bpm. You request an ECG which reveals irregular heart with absent P wave. Which one of the following would you expect to see when Assessing the JVP?</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="Absent ‘a waves”"> Absent ‘a waves”</label>
+                <label><input type="radio" name="q33" value="Cannon ‘a waves’"> Cannon ‘a waves’</label>
+                <label><input type="radio" name="q33" value="Large ‘a waves”"> Large ‘a waves”</label>
+                <label><input type="radio" name="q33" value="Large ‘v waves’"> Large ‘v waves’</label>
+                <label><input type="radio" name="q33" value="Raised JVP with normal waveform"> Raised JVP with normal waveform</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-34">
+            <p>34- A 76-year-old male collapsed at home. He has recovered within minutes and is fully alert and orientated. This is the first episode that he has experienced but he has increasing shortness of breath in the previous six months and brief periods of central chest pain. Blood pressure is 115/88 mmHg and few rales at both bases. On ECG there are mild left ventricular hypertrophy. What do you expect to find on Auscultation?</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="Crescendo systolic murmur best heard at the right sternal edge"> Crescendo systolic murmur best heard at the right sternal edge</label>
+                <label><input type="radio" name="q34" value="Diastolic murmur best heard at the left sternal edge"> Diastolic murmur best heard at the left sternal edge</label>
+                <label><input type="radio" name="q34" value="Mid-diastolic murmur best heard at the apex"> Mid-diastolic murmur best heard at the apex</label>
+                <label><input type="radio" name="q34" value="Pan-systolic murmur best heard at the apex"> Pan-systolic murmur best heard at the apex</label>
+                <label><input type="radio" name="q34" value="Pan-systolic murmur best heard at the left sternal edge"> Pan-systolic murmur best heard at the left sternal edge</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-35">
+            <p>35- A 56-year-old man presents to your clinic with symptoms of exertional chest tightness which is relieved by rest. You request an ECG which reveals that the patient has first degree heart block. Which of the following ECG abnormalities is typically seen in first degree heart block?</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="PR interval >120 ms"> PR interval >120 ms</label>
+                <label><input type="radio" name="q35" value="PR interval >300 ms"> PR interval >300 ms</label>
+                <label><input type="radio" name="q35" value="PR interval <200 ms"> PR interval <200 ms</label>
+                <label><input type="radio" name="q35" value="PR interval >200 ms"> PR interval >200 ms</label>
+                <label><input type="radio" name="q35" value="PR interval <120 ms"> PR interval <120 ms</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-36">
+            <p>36- A 62-year-old man with coronary artery disease (CAD) presents with presyncope. His physical examination is normal except for bradycardia (pulse 56 beats/min) and an irregular pulse. ECG shows Wenckebach’s type atrioventricular (AV) block. Which of the following are you most likely to see on the ECG?</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="progressive PR shortening"> progressive PR shortening</label>
+                <label><input type="radio" name="q36" value="progressive lengthening of the PR interval"> progressive lengthening of the PR interval</label>
+                <label><input type="radio" name="q36" value="tachycardia"> tachycardia</label>
+                <label><input type="radio" name="q36" value="dropped beat after PR lengthening"> dropped beat after PR lengthening</label>
+                <label><input type="radio" name="q36" value="fixed 2:1 block"> fixed 2:1 block</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-37">
+            <p>37- You are evaluating a patient with chest pain in the emergency department. The ECG shows no Q waves or ST-segment changes. You wish to know whether the patient is suffering a myocardial infarction. Which of the following biomarkers is the preferred biochemical marker of myocardial infarction?</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="Creatine kinase"> Creatine kinase</label>
+                <label><input type="radio" name="q37" value="CK-MB band"> CK-MB band</label>
+                <label><input type="radio" name="q37" value="Erythrocyte sedimentation rate"> Erythrocyte sedimentation rate</label>
+                <label><input type="radio" name="q37" value="Lactate dehydrogenase"> Lactate dehydrogenase</label>
+                <label><input type="radio" name="q37" value="Troponin I"> Troponin I</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-38">
+            <p>38- A 42-year-old man with known valvular heart disease develops a fever for 1 week. He appears unwell; findings include a pansystolic murmur At the apex that radiates to the axilla and a soft S1 sound. He has petechiae on his conjunctival sac, linear haemorrhages under a few finger nails, and painful, tender, and erythematous nodules on some of the distal fingertips. Which of the following is the most responsible mechanism for these physical findings?</p>
+            <div class="options">
+                <label><input type="radio" name="q38" value="direct bacterial invasion"> direct bacterial invasion</label>
+                <label><input type="radio" name="q38" value="immune response"> immune response</label>
+                <label><input type="radio" name="q38" value="vascular phenomena"> vascular phenomena</label>
+                <label><input type="radio" name="q38" value="valvular damage"> valvular damage</label>
+                <label><input type="radio" name="q38" value="preexisting cardiac dysfunction"> preexisting cardiac dysfunction</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-39">
+            <p>39- Which of the following antiarrhythmic drugs mediates its effect by interfering with movement of calcium through the slow channel?</p>
+            <div class="options">
+                <label><input type="radio" name="q39" value="phenytoin"> phenytoin</label>
+                <label><input type="radio" name="q39" value="verapamil"> verapamil</label>
+                <label><input type="radio" name="q39" value="lidocaine"> lidocaine</label>
+                <label><input type="radio" name="q39" value="amiodarone"> amiodarone</label>
+                <label><input type="radio" name="q39" value="bretylium"> bretylium</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-40">
+            <p>40- A 67-year-old man presents with an anterior myocardial infarction (MI) and receives thrombolytic therapy. Three days later, he develops chest pain that is exacerbated by lying down, and his physical findings are normal except for a friction rub. His ECG shows evolving changes from the anterior infarction but new PR-segment depression and 1-mm ST-segment elevation in all the limb leads. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q40" value="reinfraction"> reinfarction</label>
+                <label><input type="radio" name="q40" value="pulmonary embolus"> pulmonary embolus</label>
+                <label><input type="radio" name="q40" value="viral infection"> viral infection</label>
+                <label><input type="radio" name="q40" value="post-MI pericarditis"> post-MI pericarditis</label>
+                <label><input type="radio" name="q40" value="dissecting aneurysm"> dissecting aneurysm</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-41">
+            <p>41- Auscultation of the heart of a 17-year-old boy reveals an increased intensity of the pulmonary component of the second heart sound. He complains of dyspnea on exertion but no other cardiac or pulmonary symptoms. Which of the following explanations is the most likely cause of his dyspnea?</p>
+            <div class="options">
+                <label><input type="radio" name="q41" value="pulmonary stenosis"> pulmonary stenosis</label>
+                <label><input type="radio" name="q41" value="aortic stenosis"> aortic stenosis</label>
+                <label><input type="radio" name="q41" value="MI"> MI</label>
+                <label><input type="radio" name="q41" value="pulmonary hypertension"> pulmonary hypertension</label>
+                <label><input type="radio" name="q41" value="systemic hypertension"> systemic hypertension</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-42">
+            <p>42- A 73-year-old man has angina pectoris on exertion, but an angiogram reveals noncritical stenosis of the coronary arteries. This occurs most frequently with which of the following valvular heart diseases?</p>
+            <div class="options">
+                <label><input type="radio" name="q42" value="mitral stenosis"> mitral stenosis</label>
+                <label><input type="radio" name="q42" value="mitral insufficiency"> mitral insufficiency</label>
+                <label><input type="radio" name="q42" value="pulmonary stenosis"> pulmonary stenosis</label>
+                <label><input type="radio" name="q42" value="aortic stenosis"> aortic stenosis</label>
+                <label><input type="radio" name="q42" value="aortic insufficiency"> aortic insufficiency</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-43">
+            <p>43- A patient with new-onset syncope has a blood pressure of 110/85 mm Hg and a harsh systolic ejection murmur at the base, radiating to both carotids. Auscultation of the second heart sound at the base might reveal which of the following findings?</p>
+            <div class="options">
+                <label><input type="radio" name="q43" value="it is accentuated"> it is accentuated</label>
+                <label><input type="radio" name="q43" value="it is diminished"> it is diminished</label>
+                <label><input type="radio" name="q43" value="it is normal in character"> it is normal in character</label>
+                <label><input type="radio" name="q43" value="it is widely split due to delayed ventricular ejection"> it is widely split due to delayed ventricular ejection</label>
+                <label><input type="radio" name="q43" value="it shows fixed splitting"> it shows fixed splitting</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-44">
+            <p>44- A 28-year-old man develops viridans group streptococci septicemia. Which of the following cardiac lesions has the highest risk of developing endocarditis?</p>
+            <div class="options">
+                <label><input type="radio" name="q44" value="ventricular septal defect"> ventricular septal defect</label>
+                <label><input type="radio" name="q44" value="atrial septal defect, secundum type"> atrial septal defect, secundum type</label>
+                <label><input type="radio" name="q44" value="mitral valve prolapse with regurgitation"> mitral valve prolapse with regurgitation</label>
+                <label><input type="radio" name="q44" value="pure mitral stenosis"> pure mitral stenosis</label>
+                <label><input type="radio" name="q44" value="asymmetric septal hypertrophy"> asymmetric septal hypertrophy</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-45">
+            <p>45- A 47-year-old woman has new-onset transient right arm weakness and word finding difficulty symptoms lasting 3 hours. She is also experiencing exertional dyspnea, and had a syncopal event 1 month ago. Her echocardiogram reveals a cardiac tumour in the left atrium, it is pedunculated and attached to the endocardium. Which of the following is the most likely cause of this lesion?</p>
+            <div class="options">
+                <label><input type="radio" name="q45" value="myxoma"> myxoma</label>
+                <label><input type="radio" name="q45" value="sarcoma"> sarcoma</label>
+                <label><input type="radio" name="q45" value="rhabdomyoma"> rhabdomyoma</label>
+                <label><input type="radio" name="q45" value="fibroma"> fibroma</label>
+                <label><input type="radio" name="q45" value="lipoma"> lipoma</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-46">
+            <p>46- What is the most common cause of pulseless electrical activity (PEA)?</p>
+            <div class="options">
+                <label><input type="radio" name="q46" value="Acidosis"> Acidosis</label>
+                <label><input type="radio" name="q46" value="Hypovolemia"> Hypovolemia</label>
+                <label><input type="radio" name="q46" value="Tension pneumothorax"> Tension pneumothorax</label>
+                <label><input type="radio" name="q46" value="Pericardial tamponade"> Pericardial tamponade</label>
+                <label><input type="radio" name="q46" value="Severe pulmonary embolism"> Severe pulmonary embolism</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-47">
+            <p>47- A 48-year-old man is admitted to the coronary care unit with an acute inferior myocardial infarction. Two hours after admission, his blood pressure is 86/52 mmHg; his heart rate is 40 beats per minute with sinus rhythm. Which of the following would be the most appropriate initial therapy?</p>
+            <div class="options">
+                <label><input type="radio" name="q47" value="Immediate insertion of a temporary transvenous pacemaker"> Immediate insertion of a temporary transvenous pacemaker</label>
+                <label><input type="radio" name="q47" value="Intravenous administration of atropine , 0.6 mg"> Intravenous administration of atropine , 0.6 mg</label>
+                <label><input type="radio" name="q47" value="Administration of normal saline, 300 mL over 15 min"> Administration of normal saline, 300 mL over 15 min</label>
+                <label><input type="radio" name="q47" value="Intravenous administration of dobutamine, 0.35 mg/min"> Intravenous administration of dobutamine, 0.35 mg/min</label>
+                <label><input type="radio" name="q47" value="Intravenous administration of isoproterenol, 5.0 g/min"> Intravenous administration of isoproterenol, 5.0 g/min</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-48">
+            <p>48- Digitalis glycosides enhance myocardial contractility primarily by which of the following mechanisms?</p>
+            <div class="options">
+                <label><input type="radio" name="q48" value="Opening of calcium channels"> Opening of calcium channels</label>
+                <label><input type="radio" name="q48" value="Release of calcium from the sarcoplasmic reticulum"> Release of calcium from the sarcoplasmic reticulum</label>
+                <label><input type="radio" name="q48" value="Stimulation of myosin ATPase"> Stimulation of myosin ATPase</label>
+                <label><input type="radio" name="q48" value="Stimulation of membrane phospholipase C"> Stimulation of membrane phospholipase C</label>
+                <label><input type="radio" name="q48" value="Inhibition of membrane Na , K –ATPase"> Inhibition of membrane Na , K –ATPase</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-49">
+            <p>49- Which of the following agents has been shown to reduce mortality in patients with congestive heart failure?</p>
+            <div class="options">
+                <label><input type="radio" name="q49" value="Digitalis"> Digitalis</label>
+                <label><input type="radio" name="q49" value="Furosemide"> Furosemide</label>
+                <label><input type="radio" name="q49" value="Enalapril"> Enalapril</label>
+                <label><input type="radio" name="q49" value="Procainamide"> Procainamide</label>
+                <label><input type="radio" name="q49" value="Aspirin"> Aspirin</label>
+            </div>
+        </div>
+        
+        <div class="question" id="question-50">
+            <p>50- Which of the following findings would be expected in a person with coarctation of the aorta?</p>
+            <div class="options">
+                <label><input type="radio" name="q50" value="Both a systolic murmur and a diastolic murmur would be heard best along the left sternal border"> Both a systolic murmur and a diastolic murmur would be heard best along the left sternal border</label>
+                <label><input type="radio" name="q50" value="Often associated with a bicuspid aortic valve"> Often associated with a bicuspid aortic valve</label>
+                <label><input type="radio" name="q50" value="Inability to augment cardiac output with exercise"> Inability to augment cardiac output with exercise</label>
+                <label><input type="radio" name="q50" value="Hypertension typically resolves after complete surgical repair"> Hypertension typically resolves after complete surgical repair</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-51">
+            <p>51- A 55-year-old woman with long-standing diabetes mellitus and a 2-year history of progressive renal failure comes to medical attention because of chest pain for 12 hours. The pain is sub sternal and continuous, with radiation to the neck. She is on a strict dietary regimen with protein, fluid, and salt restriction. Her temperature is 37.2° C, blood pressure is 150/85 mm Hg, pulse is 82/min and regular, and RR is 16/min. There is no jugular vein distention or pitting edema. Auscultation reveals a rubbing sound in the precordial region and slightly distant but normal heart sounds. Lungs are clear to auscultation. A chest x-ray film shows a normal cardiac outline, and an ECG shows nonspecific ST changes. Echocardiogram reveals mild fluid collection within the pericardial sac. Which of the following is the most appropriate next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q51" value="Antibiotic treatment"> Antibiotic treatment</label>
+                <label><input type="radio" name="q51" value="Antihypertensive treatment"> Antihypertensive treatment</label>
+                <label><input type="radio" name="q51" value="Anti-inflammatory treatment"> Anti-inflammatory treatment</label>
+                <label><input type="radio" name="q51" value="Erythropoietin administration"> Erythropoietin administration</label>
+                <label><input type="radio" name="q51" value="Hemodialysis"> Hemodialysis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-52">
+            <p>52- Which part of the jugular venous waveform is exaggerated with tricuspid regurge?</p>
+            <div class="options">
+                <label><input type="radio" name="q52" value="V wave"> V wave</label>
+                <label><input type="radio" name="q52" value="y descent"> y descent</label>
+                <label><input type="radio" name="q52" value="x descent"> x descent</label>
+                <label><input type="radio" name="q52" value="c wave"> c wave</label>
+                <label><input type="radio" name="q52" value="a wave"> a wave</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-53">
+            <p>53- A 47-year-old woman presents with several episodes of severe chest pain that awoke her in the early morning. She has no history of major physical illness or drug abuse, and does not smoke. Her temperature is 37 .0°C, blood pressure is 125/80 mm Hg, pulse is 78/min and regular, and RR is 12/min. An ECG reveals no abnormalities and the physician tells the patient that her pain is probably of psychological origin. After a few days, the patient comes to ER at 5 AM complaining of chest pain. An ECG reveals sinus rhythm with ST segment elevation. The patient is admitted, and coronary arteriography is performed, revealing no stenotic lesions. Intravenous administration of ergonovine during arteriography triggers chest pain accompanied by ST elevation on ECG. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q53" value="Myocardial Infarction"> Myocardial Infarction</label>
+                <label><input type="radio" name="q53" value="Prinzmetal angina"> Prinzmetal angina</label>
+                <label><input type="radio" name="q53" value="Psychological chest pain"> Psychological chest pain</label>
+                <label><input type="radio" name="q53" value="Stable angina"> Stable angina</label>
+                <label><input type="radio" name="q53" value="Unstable angina"> Unstable angina</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-54">
+            <p>54- What is the target INR for a patient with a mechanical mitral valve?</p>
+            <div class="options">
+                <label><input type="radio" name="q54" value="4.0-4.5"> 4.0-4.5</label>
+                <label><input type="radio" name="q54" value="4.0"> 4.0</label>
+                <label><input type="radio" name="q54" value="2.5-3.5"> 2.5-3.5</label>
+                <label><input type="radio" name="q54" value="2.0-3.0"> 2.0-3.0</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-55">
+            <p>55- What is the most common cardiac defect seen in patients with Down's syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q55" value="Ventricular septal defect"> Ventricular septal defect</label>
+                <label><input type="radio" name="q55" value="Secundum atrial septal defect"> Secundum atrial septal defect</label>
+                <label><input type="radio" name="q55" value="Tetralogy of Fallot"> Tetralogy of Fallot</label>
+                <label><input type="radio" name="q55" value="Patent ductus arteriosus"> Patent ductus arteriosus</label>
+                <label><input type="radio" name="q55" value="Endocardial cushion defect"> Endocardial cushion defect</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-56">
+            <p>56- All are causes of acute aortic syndrome except:</p>
+            <div class="options">
+                <label><input type="radio" name="q56" value="Aortic dissection"> Aortic dissection</label>
+                <label><input type="radio" name="q56" value="Aortic aneurysm"> Aortic aneurysm</label>
+                <label><input type="radio" name="q56" value="Aortic thrombosis at bifurcation"> Aortic thrombosis at bifurcation</label>
+                <label><input type="radio" name="q56" value="Perforated aortic ulcer"> Perforated aortic ulcer</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-57">
+            <p>57- An otherwise healthy 28-year-old man presents with recent onset of chest pain. He started an active exercise program of weight lifting 1 week prior to the onset of symptoms. The pain began 24 hours ago and has been constant in intensity it is sharp, localized, and exacerbated by movement. His temperature is 37°C, blood pressure is 125/80 mm Hg, pulse is 70/min, and RR is 12/min. There is tenderness on palpation of the chest wall muscles in the precordial region. Which of the following is the most appropriate next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q57" value="Administration of antacid"> Administration of antacid</label>
+                <label><input type="radio" name="q57" value="ECG at rest and during exercise"> ECG at rest and during exercise</label>
+                <label><input type="radio" name="q57" value="Psychological screening tests"> Psychological screening tests</label>
+                <label><input type="radio" name="q57" value="NSAID & Stop future muscle overuse"> NSAID & Stop future muscle overuse</label>
+                <label><input type="radio" name="q57" value="Performance of a Bernstein test"> Performance of a Bernstein test</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-58">
+            <p>58- A 46-year-old woman complains of dyspnea on exertion and orthopnea that started 7 months ago. She has a prior history of pericarditis, which had been treated with indomethacin. An ECG shows low voltage in the limb leads. A chest radiograph reveals pericardial calcification, and echocardiography shows pericardial thickening. Cardiac catheterization reveals equal pressures in the four cardiac chambers during diastole with all pressures elevated. Which of the following findings would help to diagnose her condition?</p>
+            <div class="options">
+                <label><input type="radio" name="q58" value="Exaggerated S1 and S2"> Exaggerated S1 and S2</label>
+                <label><input type="radio" name="q58" value="Fourth heart sound (S4)"> Fourth heart sound (S4)</label>
+                <label><input type="radio" name="q58" value="Third heart sound (S3)"> Third heart sound (S3)</label>
+                <label><input type="radio" name="q58" value="Increased neck vein distention on inspiration"> Increased neck vein distention on inspiration</label>
+                <label><input type="radio" name="q58" value="Predominance of left-sided symptoms over right sided symptoms"> Predominance of left-sided symptoms over right sided symptoms</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-59">
+            <p>59- A 69-year-old man with history of congestive heart failure secondary to hypertension and atrial fibrillation presents with increasing nausea, headache, and blurred vision in both eyes over the past 3 days. He also complains of seeing yellow halos around lights:' His medications include hydrochlorothiazide, enalapril, and digoxin. His blood pressure is 135/85 mm Hg, pulse is 56/min with irregular rhythm, and RR is 16/min. Which of the following is the most likely cause of these symptoms?</p>
+            <div class="options">
+                <label><input type="radio" name="q59" value="Acute narrow-angle glaucoma"> Acute narrow-angle glaucoma</label>
+                <label><input type="radio" name="q59" value="Digoxin toxicity"> Digoxin toxicity</label>
+                <label><input type="radio" name="q59" value="Diuretic-induced hypokalemia"> Diuretic-induced hypokalemia</label>
+                <label><input type="radio" name="q59" value="Enalapril overdose"> Enalapril overdose</label>
+                <label><input type="radio" name="q59" value="Malignant hypertension"> Malignant hypertension</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-60">
+            <p>60- A 54-year-old man presents to the ER complaining of epigastric discomfort, which began while he was exercising after dinner about one and half hour earlier. He has not received medical care for several years. On examination, he is moderately obese and in obvious discomfort and seems restless. His BP is 160/100 mmHg, and his examination is otherwise unremarkable. His ECG showed elevated S -T segment in leads II, III and A VF. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q60" value="Anterolateral myocardial infarction"> Anterolateral myocardial infarction</label>
+                <label><input type="radio" name="q60" value="Costochondritis"> Costochondritis</label>
+                <label><input type="radio" name="q60" value="Gastro esophageal reflux"> Gastro esophageal reflux</label>
+                <label><input type="radio" name="q60" value="Inferior wall myocardial infarction"> Inferior wall myocardial infarction</label>
+                <label><input type="radio" name="q60" value="Pericarditis"> Pericarditis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-61">
+            <p>61- A 54-year-old man presents to the ER complaining of epigastric discomfort, which began while he was exercising after dinner about one-half hour earlier. He has not received medical care for several years. On examination, he is moderately obese and in obvious discomfort and seems restless. His BP is 140/90 mmHg, and his examination is otherwise umemarkable. His ECG showed elevated S -T segment in leads II, III and AVF. Which of the following is the most appropriate next step in management?</p>
+            <div class="options">
+                <label><input type="radio" name="q61" value="Arrange for cardiac intensive care bed"> Arrange for cardiac intensive care bed</label>
+                <label><input type="radio" name="q61" value="Arrange for urgent echocardiogram"> Arrange for urgent echocardiogram</label>
+                <label><input type="radio" name="q61" value="Begin thrombolytic therapy"> Begin thrombolytic therapy</label>
+                <label><input type="radio" name="q61" value="Reassurance and arrange outpatient follow-up"> Reassurance and arrange outpatient follow-up</label>
+                <label><input type="radio" name="q61" value="Trial of antacid immediately"> Trial of antacid immediately</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-62">
+            <p>62- A 23-year-old woman comes for a Check-Up visit. She enjoys good health and exercises regularly. Her height is 172 cm and weight is 66 kg. Her blood pressure is 120/80 mm Hg, pulse is 74/mm, and RR is 12/mm, Physical examination is unremarkable except for heart auscultation, which reveals an isolated midsystolic click. Which of the following is the most common cause of this auscultatory finding?</p>
+            <div class="options">
+                <label><input type="radio" name="q62" value="Bicuspid aortic valve"> Bicuspid aortic valve</label>
+                <label><input type="radio" name="q62" value="Congenital pulmonary stenosis"> Congenital pulmonary stenosis</label>
+                <label><input type="radio" name="q62" value="Barlow syndrome"> Barlow syndrome</label>
+                <label><input type="radio" name="q62" value="Ruptured papillary muscle"> Ruptured papillary muscle</label>
+                <label><input type="radio" name="q62" value="Tricuspid regurgitation"> Tricuspid regurgitation</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-63">
+            <p>63- A 59-year-old man who was active all his life develops sudden severe tearing anterior chest pain that radiates to his back. Within minutes, he is unconscious. He has a history of hypertension, but a recent treadmill test had revealed no evidence for cardiac disease. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q63" value="Acute myocardial infarction"> Acute myocardial infarction</label>
+                <label><input type="radio" name="q63" value="Pulmonary embolus"> Pulmonary embolus</label>
+                <label><input type="radio" name="q63" value="Right middle cerebral artery embolus"> Right middle cerebral artery embolus</label>
+                <label><input type="radio" name="q63" value="Tear in the aortic intima"> Tear in the aortic intima</label>
+                <label><input type="radio" name="q63" value="Tension pneumothorax"> Tension pneumothorax</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-64">
+            <p>64- A 59-year-old male presents with a 1 hour history of central crushing chest pain. He is known to be diabetic, hypertensive and is a non-smoker. On examination his pulse rate 90 beats/ min, blood pressure 130/85 mmHg, SI & S2 are audible with no murmurs. There is no evidence of cardiac failure. An ECG is performed and thrombolytic therapy is initiated. Which of the following would be expected to be present in his ECG?</p>
+            <div class="options">
+                <label><input type="radio" name="q64" value="Atrial fibrillation > 150/min"> Atrial fibrillation > 150/min</label>
+                <label><input type="radio" name="q64" value="Right bundle branch block"> Right bundle branch block</label>
+                <label><input type="radio" name="q64" value="ST depression of 2 mm in leads II,III and A VF"> ST depression of 2 mm in leads II,III and A VF</label>
+                <label><input type="radio" name="q64" value="ST elevation of 2 mm in V4-V6"> ST elevation of 2 mm in V4-V6</label>
+                <label><input type="radio" name="q64" value="Supraventricular tachycardia"> Supraventricular tachycardia</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-65">
+            <p>65- A 35-year-old lady at 14 weeks gestation is found to have a blood pressure of 160/100 mmBg. Her father is known to have hypertension. Electrocardiogram demonstrates features of left ventricular hypertrophy. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q65" value="Eclampsia"> Eclampsia</label>
+                <label><input type="radio" name="q65" value="Essential pre existing hypertension"> Essential pre existing hypertension</label>
+                <label><input type="radio" name="q65" value="Pre-eclampsia"> Pre-eclampsia</label>
+                <label><input type="radio" name="q65" value="Pregnancy-induced hypertension"> Pregnancy-induced hypertension</label>
+                <label><input type="radio" name="q65" value="Renal hypertension"> Renal hypertension</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-66">
+            <p>66- A 50-year-old man with hypertension already on furosemide, Ramipril and digoxin is found to have poor left ventricular function on echocardiogram. Which antihypertensive should be added?</p>
+            <div class="options">
+                <label><input type="radio" name="q66" value="Carvedilol"> Carvedilol</label>
+                <label><input type="radio" name="q66" value="Diltiazem"> Diltiazem</label>
+                <label><input type="radio" name="q66" value="Doxazosin"> Doxazosin</label>
+                <label><input type="radio" name="q66" value="Hydralazine"> Hydralazine</label>
+                <label><input type="radio" name="q66" value="Nifedipine"> Nifedipine</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-67">
+            <p>67- A 60-year-old man with a history of controlled hypertension presents with acute onset weakness of his left arm, which resolved over 12 hours. He had suffered two similar episodes over the last three months. Examination reveals a blood pressure of 135/85 mmHg and pulse is 80/min with irregular irregularity. ECG reveals absent p wave. CT brain scan is normal. What is the most appropriate management?</p>
+            <div class="options">
+                <label><input type="radio" name="q67" value="Amiodarone"> Amiodarone</label>
+                <label><input type="radio" name="q67" value="Aspirin"> Aspirin</label>
+                <label><input type="radio" name="q67" value="Digoxin"> Digoxin</label>
+                <label><input type="radio" name="q67" value="Dipyridamole"> Dipyridamole</label>
+                <label><input type="radio" name="q67" value="Warfarin"> Warfarin</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-68">
+            <p>68- A 26-year-old professional footballer collapses while playing football. He is rushed to the ER, and is found to be in ventricular tachycardia. He is defibrillated successfully and his 12 lead ECG demonstrates normal sinus rhythm, without ST segment changes. Ventricular tachycardia recurs and despite prolonged resuscitation, he dies. What is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q68" value="Aortic stenosis"> Aortic stenosis</label>
+                <label><input type="radio" name="q68" value="Cocaine intoxication"> Cocaine intoxication</label>
+                <label><input type="radio" name="q68" value="Hypertrophic obstructive cardiomyopathy"> Hypertrophic obstructive cardiomyopathy</label>
+                <label><input type="radio" name="q68" value="Myocardial infarction"> Myocardial infarction</label>
+                <label><input type="radio" name="q68" value="Pulmonary embolism"> Pulmonary embolism</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-69">
+            <p>69- A 34-year-old male presents with palpitations. The ECG shows a slurred upstroke in the QRS complexes in the chest leads. What is the treatment of choice?</p>
+            <div class="options">
+                <label><input type="radio" name="q69" value="Amiodarone"> Amiodarone</label>
+                <label><input type="radio" name="q69" value="Aspirin"> Aspirin</label>
+                <label><input type="radio" name="q69" value="Diltiazem"> Diltiazem</label>
+                <label><input type="radio" name="q69" value="Radiofrequency ablation"> Radiofrequency ablation</label>
+                <label><input type="radio" name="q69" value="Warfarin"> Warfarin</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-70">
+            <p>70- A 56-year-old male with left ventricular systolic dysfunction was dyspneic on climbing stairs but not at rest. The patient was commenced on Ramipril and furosemide. Which one of the following drugs would improve the patient's prognosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q70" value="Amiodarone"> Amiodarone</label>
+                <label><input type="radio" name="q70" value="Amlodipine"> Amlodipine</label>
+                <label><input type="radio" name="q70" value="Bisoprolol"> Bisoprolol</label>
+                <label><input type="radio" name="q70" value="Digoxin"> Digoxin</label>
+                <label><input type="radio" name="q70" value="Nitrate therapy"> Nitrate therapy</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-71">
+            <p>71- The term 'orthopnoea' refers to breathlessness (dyspnoea) in a particular situation. Which answer below describes that situation?</p>
+            <div class="options">
+                <label><input type="radio" name="q71" value="After several hours of sleep"> After several hours of sleep</label>
+                <label><input type="radio" name="q71" value="Due to asthma"> Due to asthma</label>
+                <label><input type="radio" name="q71" value="Immediately on lying flat"> Immediately on lying flat</label>
+                <label><input type="radio" name="q71" value="On exertion"> On exertion</label>
+                <label><input type="radio" name="q71" value="On sitting upright"> On sitting upright</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-72">
+            <p>72- A 56 year old man presents with a history of headache. He is noted to have a loud second heart sound on auscultation. Which of the following pathologies could explain this?</p>
+            <div class="options">
+                <label><input type="radio" name="q72" value="Aortic incompetence"> Aortic incompetence</label>
+                <label><input type="radio" name="q72" value="Systemic hypertension"> Systemic hypertension</label>
+                <label><input type="radio" name="q72" value="Mechanical mitral valve replacement"> Mechanical mitral valve replacement</label>
+                <label><input type="radio" name="q72" value="Mitral incompetence"> Mitral incompetence</label>
+                <label><input type="radio" name="q72" value="Postural hypotension"> Postural hypotension</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-73">
+            <p>73- Which of the following pathologies can be associated with an early diastolic murmur?</p>
+            <div class="options">
+                <label><input type="radio" name="q73" value="Long QT syndrome type 1"> Long QT syndrome type 1</label>
+                <label><input type="radio" name="q73" value="Marfan's syndrome"> Marfan's syndrome</label>
+                <label><input type="radio" name="q73" value="Mitral valve prolapse"> Mitral valve prolapse</label>
+                <label><input type="radio" name="q73" value="Myotonic dystrophy"> Myotonic dystrophy</label>
+                <label><input type="radio" name="q73" value="Wolff-Parkinson-White syndrome"> Wolff-Parkinson-White syndrome</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-74">
+            <p>74- Which of the following physical signs is associated with left ventricular failure?</p>
+            <div class="options">
+                <label><input type="radio" name="q74" value="A gallop rhythm with a fourth heart sound"> A gallop rhythm with a fourth heart sound</label>
+                <label><input type="radio" name="q74" value="A gallop rhythm with a third heart sound"> A gallop rhythm with a third heart sound</label>
+                <label><input type="radio" name="q74" value="A loud second heart sound"> A loud second heart sound</label>
+                <label><input type="radio" name="q74" value="A quiet first heart sound"> A quiet first heart sound</label>
+                <label><input type="radio" name="q74" value="Fixed splitting of the second heart sound"> Fixed splitting of the second heart sound</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-75">
+            <p>75- What relationship does Starling's Law of the heart describe?</p>
+            <div class="options">
+                <label><input type="radio" name="q75" value="Between blood pressure and cardiac output"> Between blood pressure and cardiac output</label>
+                <label><input type="radio" name="q75" value="Between cardiac filling and blood pressure"> Between cardiac filling and blood pressure</label>
+                <label><input type="radio" name="q75" value="Between cardiac filling and cardiac output"> Between cardiac filling and cardiac output</label>
+                <label><input type="radio" name="q75" value="Between heart rate and blood pressure"> Between heart rate and blood pressure</label>
+                <label><input type="radio" name="q75" value="Between heart rate and cardiac output"> Between heart rate and cardiac output</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-76">
+            <p>76- 14-year-old boy is admitted with palpitations and is noted to have a long QT interval. His only past medical history is deafness. What is the likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q76" value="Leriche's syndrome"> Leriche's syndrome</label>
+                <label><input type="radio" name="q76" value="Wolff-Parkinson While syndrome"> Wolff-Parkinson While syndrome</label>
+                <label><input type="radio" name="q76" value="Jervell-Lange-Nielsen syndrome"> Jervell-Lange-Nielsen syndrome</label>
+                <label><input type="radio" name="q76" value="Romano-Ward syndrome"> Romano-Ward syndrome</label>
+                <label><input type="radio" name="q76" value="Osler-Weber-Rendu syndrome"> Osler-Weber-Rendu syndrome</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-77">
+            <p>77- A 52-year-old man is admitted to the Emergency Department. He was found collapsed by neighbours. An ECG on arrival shows torsades de pointes. Which one of his medications is most likely to have contributed to this presentation?</p>
+            <div class="options">
+                <label><input type="radio" name="q77" value="Bisoprolol"> Bisoprolol</label>
+                <label><input type="radio" name="q77" value="Cimetidine"> Cimetidine</label>
+                <label><input type="radio" name="q77" value="Risperidone"> Risperidone</label>
+                <label><input type="radio" name="q77" value="Phenytoin"> Phenytoin</label>
+                <label><input type="radio" name="q77" value="Doxycyclin"> Doxycyclin</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-78">
+            <p>78- You are considering prescribing an antibiotic to a 28-year-old man who tells you he has Long QT syndrome. Which antibiotic is it most important to avoid?</p>
+            <div class="options">
+                <label><input type="radio" name="q78" value="Doxycycline"> Doxycycline</label>
+                <label><input type="radio" name="q78" value="Trimethoprim"> Trimethoprim</label>
+                <label><input type="radio" name="q78" value="Erythromycin"> Erythromycin</label>
+                <label><input type="radio" name="q78" value="Rifampicin"> Rifampicin</label>
+                <label><input type="radio" name="q78" value="Co-amoxiclav"> Co-amoxiclav</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-79">
+            <p>79- A 71-year-old man who had rheumatic fever as a child is admitted to the cardiology ward with suspected infective endocarditis This is confirmed by blood cultures and echocardiography. Which one of the following is most likely to be represent a need for surgical intervention?</p>
+            <div class="options">
+                <label><input type="radio" name="q79" value="A septic embolism in the right kidney"> A septic embolism in the right kidney</label>
+                <label><input type="radio" name="q79" value="Persistent pyrexia after 48 hours of antibiotics"> Persistent pyrexia after 48 hours of antibiotics</label>
+                <label><input type="radio" name="q79" value="Lengthening of the PR interval on ECG"> Lengthening of the PR interval on ECG</label>
+                <label><input type="radio" name="q79" value="Pre-existing left ventricular impairment"> Pre-existing left ventricular impairment</label>
+                <label><input type="radio" name="q79" value="Streptococcus viridans isolated on blood cultures"> Streptococcus viridans isolated on blood cultures</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-80">
+            <p>80- A 76-year-old woman is admitted with palpitations. During cardiovascular examination you notice irregular cannon 'a' waves. Which one of the following would account for this finding?</p>
+            <div class="options">
+                <label><input type="radio" name="q80" value="Atrio-ventricular nodal reentry tachycardia"> Atrio-ventricular nodal reentry tachycardia</label>
+                <label><input type="radio" name="q80" value="Atrial fibrillation with tricuspid stenosis"> Atrial fibrillation with tricuspid stenosis</label>
+                <label><input type="radio" name="q80" value="Ventricular tachycardia with 1:1 ventricular-atrial conduction"> Ventricular tachycardia with 1:1 ventricular-atrial conduction</label>
+                <label><input type="radio" name="q80" value="Tricuspid regurgitation"> Tricuspid regurgitation</label>
+                <label><input type="radio" name="q80" value="Complete heart block"> Complete heart block</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-81">
+            <p>81- You review a 50 year old smoker 2 months after successful treatment for a myocardial infarction. Which intervention has the greatest benefit to prevent a recurrence of myocardial infarction?</p>
+            <div class="options">
+                <label><input type="radio" name="q81" value="ACE inhibitor therapy"> ACE inhibitor therapy</label>
+                <label><input type="radio" name="q81" value="Aspirin"> Aspirin</label>
+                <label><input type="radio" name="q81" value="Regular and frequent aerobic exercise"> Regular and frequent aerobic exercise</label>
+                <label><input type="radio" name="q81" value="Smoking cessation"> Smoking cessation</label>
+                <label><input type="radio" name="q81" value="Statin therapy"> Statin therapy</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-82">
+            <p>82- What underlying pathophysiological changes is chronic cardiac failure associated with?</p>
+            <div class="options">
+                <label><input type="radio" name="q82" value="Activation of the renin-angiotensin-aldosterone system (RAAS)"> Activation of the renin-angiotensin-aldosterone system (RAAS)</label>
+                <label><input type="radio" name="q82" value="Inhibition of the RAAS"> Inhibition of the RAAS</label>
+                <label><input type="radio" name="q82" value="Inhibition of the sympathetic nervous system"> Inhibition of the sympathetic nervous system</label>
+                <label><input type="radio" name="q82" value="Reduced production of brain natriuretic peptide (BNP)"> Reduced production of brain natriuretic peptide (BNP)</label>
+                <label><input type="radio" name="q82" value="Systemic vasodilatation"> Systemic vasodilatation</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-83">
+            <p>83- A 35 year old executive has a reproducible BP of 180/100 mmHg. She is referred for assessment in the clinic. You perform a range of tests to determine whether there is an underlying cause for her hypertension. What is the commonest cause of secondary hypertension?</p>
+            <div class="options">
+                <label><input type="radio" name="q83" value="Congenital adrenal hyperplasia"> Congenital adrenal hyperplasia</label>
+                <label><input type="radio" name="q83" value="Conn's syndrome"> Conn's syndrome</label>
+                <label><input type="radio" name="q83" value="Phaeochromocytoma"> Phaeochromocytoma</label>
+                <label><input type="radio" name="q83" value="Renal disease"> Renal disease</label>
+                <label><input type="radio" name="q83" value="Thyrotoxicosis"> Thyrotoxicosis</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-84">
+            <p>84- A 60 year old man is referred by his family physician because despite four drugs he continues to have uncontrolled blood pressure. The doctor feels that the patient needs further investigation for a potential secondary cause of hypertension. What is the commonest cause of poorly controlled hypertension?</p>
+            <div class="options">
+                <label><input type="radio" name="q84" value="Conn's syndrome"> Conn's syndrome</label>
+                <label><input type="radio" name="q84" value="Glucocorticoid-suppressible hyperaldosteronism"> Glucocorticoid-suppressible hyperaldosteronism</label>
+                <label><input type="radio" name="q84" value="Hyper-reninaemia"> Hyper-reninaemia</label>
+                <label><input type="radio" name="q84" value="Poor adherence with medication"> Poor adherence with medication</label>
+                <label><input type="radio" name="q84" value="Renal failure"> Renal failure</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-85">
+            <p>85- An 18 year old woman presents with a sore throat and suspected acute rheumatic fever. Which of the following is a minor manifestation of acute rheumatic fever?</p>
+            <div class="options">
+                <label><input type="radio" name="q85" value="Carditis"> Carditis</label>
+                <label><input type="radio" name="q85" value="Chorea"> Chorea</label>
+                <label><input type="radio" name="q85" value="Erythema marginatum"> Erythema marginatum</label>
+                <label><input type="radio" name="q85" value="Raised C-reactive protein"> Raised C-reactive protein</label>
+                <label><input type="radio" name="q85" value="Subcutaneous nodules"> Subcutaneous nodules</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-86">
+            <p>86- An 18 year old woman has a raised C-reactive protein, a rash consistent with erythema marginatum and pyrexia. However, the clinician remains uncertain about the diagnosis of acute rheumatic fever. Rapid response to which treatment will help to confirm the diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q86" value="Aspirin"> Aspirin</label>
+                <label><input type="radio" name="q86" value="Bed rest"> Bed rest</label>
+                <label><input type="radio" name="q86" value="Diuretics"> Diuretics</label>
+                <label><input type="radio" name="q86" value="Glucocorticoids"> Glucocorticoids</label>
+                <label><input type="radio" name="q86" value="High-dose antibiotics"> High-dose antibiotics</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-87">
+            <p>87- A 34 year old woman presents with symptoms of breathlessness on exertion, a malar flush and has a past history of rheumatic fever. She is in sinus rhythm and has an echocardiogram that confirms mitral stenosis. Which physical sign is she likely to have?</p>
+            <div class="options">
+                <label><input type="radio" name="q87" value="Ejection systolic murmur"> Ejection systolic murmur</label>
+                <label><input type="radio" name="q87" value="Mid-systolic click"> Mid-systolic click</label>
+                <label><input type="radio" name="q87" value="Pre-systolic accentuation"> Pre-systolic accentuation</label>
+                <label><input type="radio" name="q87" value="Quiet second heart sound"> Quiet second heart sound</label>
+                <label><input type="radio" name="q87" value="Thrusting apex beat"> Thrusting apex beat</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-88">
+            <p>88- An 80 year old man presents with an incidental ejection systolic murmur. His family physician notices a parasternal thrill. What is the likely underlying reason for the thrill?</p>
+            <div class="options">
+                <label><input type="radio" name="q88" value="Aortic stenosis"> Aortic stenosis</label>
+                <label><input type="radio" name="q88" value="Large atrial septal defect"> Large atrial septal defect</label>
+                <label><input type="radio" name="q88" value="Mitral stenosis"> Mitral stenosis</label>
+                <label><input type="radio" name="q88" value="Pulmonary hypertension"> Pulmonary hypertension</label>
+                <label><input type="radio" name="q88" value="Right ventricular hypertrophy"> Right ventricular hypertrophy</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-89">
+            <p>89- In patients with a pericardial effusion, what is the most important clinical sign to determine whether there is cardiac tamponade?</p>
+            <div class="options">
+                <label><input type="radio" name="q89" value="Cyanosis"> Cyanosis</label>
+                <label><input type="radio" name="q89" value="Haematuria"> Haematuria</label>
+                <label><input type="radio" name="q89" value="Peripheral oedema"> Peripheral oedema</label>
+                <label><input type="radio" name="q89" value="Pulsus paradoxus"> Pulsus paradoxus</label>
+                <label><input type="radio" name="q89" value="Raised JVP"> Raised JVP</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-90">
+            <p>90- The following medical treatments are all associated with improved symptoms in patients with heart failure due to left ventricular systolic dysfunction. However, which of the treatments has NOT been shown to also improve survival?</p>
+            <div class="options">
+                <label><input type="radio" name="q90" value="Bisoprolol"> Bisoprolol</label>
+                <label><input type="radio" name="q90" value="Enalapril"> Enalapril</label>
+                <label><input type="radio" name="q90" value="Furosemide"> Furosemide</label>
+                <label><input type="radio" name="q90" value="Sacubitril-valsartan"> Sacubitril-valsartan</label>
+                <label><input type="radio" name="q90" value="Spironolactone"> Spironolactone</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-91">
+            <p>91- A 72-year-old woman has new-onset atrial flutter with a ventricular rate of 150/min. She is hemodynamically stable with a blood pressure of 155/90 mm Hg, but is experiencing palpitations. Which of the following drugs is the best intravenous choice for controlling the heart rate?</p>
+            <div class="options">
+                <label><input type="radio" name="q91" value="diltiazem"> diltiazem</label>
+                <label><input type="radio" name="q91" value="lidocaine"> lidocaine</label>
+                <label><input type="radio" name="q91" value="aminophylline"> aminophylline</label>
+                <label><input type="radio" name="q91" value="magnesium"> magnesium</label>
+                <label><input type="radio" name="q91" value="atropine"> atropine</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-92">
+            <p>92- A 23-year-old man develops sharp left-sided chest pain, fever, and a friction rub heard at the lower left sternal border, unaffected by respiration. The pain is also aggevated by lying down and relieved by sitting up. He is otherwise well with no other symptoms and the remaining physical examination is normal. Which of the following is the most likely cause for his symptoms?</p>
+            <div class="options">
+                <label><input type="radio" name="q92" value="rheumatic fever"> rheumatic fever</label>
+                <label><input type="radio" name="q92" value="tuberculosis (TB)"> tuberculosis (TB)</label>
+                <label><input type="radio" name="q92" value="herpes simplex virus"> herpes simplex virus</label>
+                <label><input type="radio" name="q92" value="MI"> MI</label>
+                <label><input type="radio" name="q92" value="coxsackie virus"> coxsackie virus</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-93">
+            <p>93- A 58-year-old man with no prior cardiac history presents with retrosternal chest pain starting at rest and lasting 30 minutes. The pain radiates to the left arm and is associated with diaphoresis and dyspnea. His blood pressure is 150/90 mm Hg, pulse 100/min, the heart sounds are normal, and the lungs are clear to auscultation. Which of the following is the next most appropriate investigation?</p>
+            <div class="options">
+                <label><input type="radio" name="q93" value="CT scan—chest"> CT scan—chest</label>
+                <label><input type="radio" name="q93" value="CXR"> CXR</label>
+                <label><input type="radio" name="q93" value="cardiac troponin"> cardiac troponin</label>
+                <label><input type="radio" name="q93" value="ECG"> ECG</label>
+                <label><input type="radio" name="q93" value="myocardial perfusion imaging"> myocardial perfusion imaging</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-94">
+            <p>94- A 32-year-old asymptomatic woman has a rapidly rising, forceful pulse that collapses quickly. Which of the following is the most likely diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q94" value="mitral stenosis"> mitral stenosis</label>
+                <label><input type="radio" name="q94" value="mitral regurgitation"> mitral regurgitation</label>
+                <label><input type="radio" name="q94" value="aortic stenosis"> aortic stenosis</label>
+                <label><input type="radio" name="q94" value="aortic regurgitation"> aortic regurgitation</label>
+                <label><input type="radio" name="q94" value="coarctation of the aorta"> coarctation of the aorta</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-95">
+            <p>95- A 63-year-old woman on digitalis for chronic atrial fibrillation experiences fatigue, nausea, and anorexia. Her pulse is regular at 50 beats/min, and the heart sounds, chest, and abdominal examinations are normal. On the ECG, no P waves are visible and the QRS complexes are narrow and regular. Which of the following is the most appropriate management step?</p>
+            <div class="options">
+                <label><input type="radio" name="q95" value="an increase in digitalis dose"> an increase in digitalis dose</label>
+                <label><input type="radio" name="q95" value="complete cessation of digitalis"> complete cessation of digitalis</label>
+                <label><input type="radio" name="q95" value="withdrawal of digitalis for one dose"> withdrawal of digitalis for one dose</label>
+                <label><input type="radio" name="q95" value="addition of a beta-blocker"> addition of a beta-blocker</label>
+                <label><input type="radio" name="q95" value="addition of a calcium channel blocker"> addition of a calcium channel blocker</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-96">
+            <p>96- A 47-year-old man is found to have edema, ascites, and hepatosplenomegaly. The examination of his neck veins reveals elevated venous pressure with a deep y descent. Heart size on x-ray is normal. Which of the following etiologies is not a possible explanation for this syndrome?</p>
+            <div class="options">
+                <label><input type="radio" name="q96" value="rheumatic fever"> rheumatic fever</label>
+                <label><input type="radio" name="q96" value="TB"> TB</label>
+                <label><input type="radio" name="q96" value="unknown cause"> unknown cause</label>
+                <label><input type="radio" name="q96" value="previous acute pericarditis"> previous acute pericarditis</label>
+                <label><input type="radio" name="q96" value="neoplastic involvement of the pericardium"> neoplastic involvement of the pericardium</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-97">
+            <p>97- A 65-year-old man develops palpitations and dizziness. His blood pressure is 80/50 mm Hg and his pulse is regular at 150/min. His ECG shows a “saw-toothed” pattern of P waves. Which of the following procedures is most appropriate in converting him back to sinus rhythm?</p>
+            <div class="options">
+                <label><input type="radio" name="q97" value="carotid sinus pressure"> carotid sinus pressure</label>
+                <label><input type="radio" name="q97" value="gagging procedures"> gagging procedures</label>
+                <label><input type="radio" name="q97" value="Valsalva maneuver"> Valsalva maneuver</label>
+                <label><input type="radio" name="q97" value="eyeball compression"> eyeball compression</label>
+                <label><input type="radio" name="q97" value="electrical cardioversion"> electrical cardioversion</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-98">
+            <p>98- A 63-year-old woman presents with symptoms of palpitations and atrial flutter on the ECG. Which of the following is the most likely mechanism of this arrhythmia?</p>
+            <div class="options">
+                <label><input type="radio" name="q98" value="atrial asystole"> atrial asystole</label>
+                <label><input type="radio" name="q98" value="atrial bigeminy"> atrial bigeminy</label>
+                <label><input type="radio" name="q98" value="right atrial macro-reentry"> right atrial macro-reentry</label>
+                <label><input type="radio" name="q98" value="AV nodal reentry"> AV nodal reentry</label>
+                <label><input type="radio" name="q98" value="accessory pathway"> accessory pathway</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-99">
+            <p>99- Three months after an anterior MI, a 73-year-old man has a follow-up ECG. He is clinically feeling well with no further angina symptoms. His ECG shows Q waves in the anterior leads with persistant ST-segment elevation. Which of the following is your diagnosis?</p>
+            <div class="options">
+                <label><input type="radio" name="q99" value="ventricular aneurysm"> ventricular aneurysm</label>
+                <label><input type="radio" name="q99" value="hibernating myocardium"> hibernating myocardium</label>
+                <label><input type="radio" name="q99" value="acute infarction"> acute infarction</label>
+                <label><input type="radio" name="q99" value="silent infarction"> silent infarction</label>
+                <label><input type="radio" name="q99" value="early repolarization"> early repolarization</label>
+            </div>
+        </div>
+
+        <div class="question" id="question-100">
+            <p>100- Which of the following heart sounds is the sound of atrioventricular Valve closure?</p>
+            <div class="options">
+                <label><input type="radio" name="q100" value="S1"> S1</label>
+                <label><input type="radio" name="q100" value="S2"> S2</label>
+                <label><input type="radio" name="q100" value="S3"> S3</label>
+                <label><input type="radio" name="q100" value="S4"> S4</label>
+                <label><input type="radio" name="q100" value="S1 & S2"> S1 & S2</label>
+            </div>
+        </div>
+
+
+        <button class="btn" id="nextBtn" onclick="nextQuestion()">Next Question</button>
+        <button class="btn" id="submitBtn" onclick="evaluateQuiz()" style="display: none;">Submit Quiz</button>
+
+        <div class="result" id="result">
+            <h2>Results</h2>
+            <div id="score"></div>
+            <div id="answers-summary"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 100;
+        let score = 0;
+        let timerInterval;
+        const answers = {
+            q1: "Non-enterococcal streptococci",
+            q2: "Unstable angina",
+            q3: "Maximize heart failure management",
+            q4: "Bioprosthetic valve replacement is preferred to mechanical valve replacement in younger patients because of the superior durability of the valve.",
+            q5: "Valsalva manoeuvre",
+            q6: "All of the above",
+            q7: "it comprises about 90% of hypertensives in general population",
+            q8: "Angiotensin converting enzyme inhibitors",
+            q9: "total cholesterol 202 mg/dL, HDL cholesterol 45 mg/dL",
+            q10: "Normal variant",
+            q11: "Add beta blocker",
+            q12: "Short PR interval",
+            q13: "Sodium nitroprusside",
+            q14: "familial hyperlipidemia",
+            q15: "atrial flutter with 2:1 block",
+            q16: "Exercise ECG",
+            q17: "Captopril",
+            q18: "Aortic dissection",
+            q19: "Right ventricular hypertrophy",
+            q20: "Unstable angina",
+            q21: "Beta-blocker",
+            q22: "Atypical angina",
+            q23: "QT interval is shortened",
+            q24: "Posterior",
+            q25: "Begin an ACE inhibitor and then add a beta-blocker on a scheduled basis.",
+            q26: "An anti-inflammatory agent",
+            q27: "Placement of a percutaneous drug-eluting coronary artery stent.",
+            q28: "Infusion of dopamine",
+            q29: "Moxifloxacin",
+            q30: "A third heart sound (S3 gallop)",
+            q31: "cardiac tamponade",
+            q32: "Murmur louder with patient in left lateral position",
+            q33: "Absent ‘a waves”",
+            q34: "Crescendo systolic murmur best heard at the right sternal edge",
+            q35: "PR interval >200 ms",
+            q36: "dropped beat after PR lengthening",
+            q37: "Troponin I",
+            q38: "vascular phenomena",
+            q39: "verapamil",
+            q40: "post-MI pericariditis",
+            q41: "pulmonary hypertension",
+            q42: "aortic stenosis",
+            q43: "it is diminished",
+            q44: "ventricular septal defect",
+            q45: "myxoma",
+            q46: "Hypovolemia",
+            q47: "Intravenous administration of atropine , 0.6 mg",
+            q48: "Inhibition of membrane Na , K –ATPase",
+            q49: "Enalapril",
+            q50: "Often associated with a bicuspid aortic valve",
+            q51: "Hemodialysis",
+            q52: "V wave",
+            q53: "Prinzmetal angina",
+            q54: "2.5-3.5",
+            q55: "Endocardial cushion defect",
+            q56: "Aortic aneurysm",
+            q57: "NSAID & Stop future muscle overuse",
+            q58: "Increased neck vein distention on inspiration",
+            q59: "Digoxin toxicity",
+            q60: "Inferior wall myocardial infarction",
+            q61: "Begin thrombolytic therapy",
+            q62: "Barlow syndrome",
+            q63: "Tear in the aortic intima",
+            q64: "ST elevation of 2 mm in V4-V6",
+            q65: "Essential pre existing hypertension",
+            q66: "Carvedilol",
+            q67: "Warfarin",
+            q68: "Hypertrophic obstructive cardiomyopathy",
+            q69: "Radiofrequency ablation",
+            q70: "Bisoprolol",
+            q71: "Immediately on lying flat",
+            q72: "Systemic hypertension",
+            q73: "Marfan's syndrome",
+            q74: "A gallop rhythm with a third heart sound",
+            q75: "Between cardiac filling and cardiac output",
+            q76: "Jervell-Lange-Nielsen syndrome",
+            q77: "Risperidone",
+            q78: "Erythromycin",
+            q79: "Lengthening of the PR interval on ECG",
+            q80: "Complete heart block",
+            q81: "Smoking cessation",
+            q82: "Activation of the renin-angiotensin-aldosterone system (RAAS)",
+            q83: "Renal disease",
+            q84: "Poor adherence with medication",
+            q85: "Raised C-reactive protein",
+            q86: "Aspirin",
+            q87: "Pre-systolic accentuation",
+            q88: "Aortic stenosis",
+            q89: "Pulsus paradoxus",
+            q90: "Furosemide",
+            q91: "diltiazem",
+            q92: "coxsackie virus",
+            q93: "ECG",
+            q94: "aortic regurgitation",
+            q95: "complete cessation of digitalis",
+            q96: "rheumatic fever",
+            q97: "electrical cardioversion",
+            q98: "right atrial macro-reentry",
+            q99: "ventricular aneurysm",
+            q100: "S1"
+        };
+
+        function showQuestion() {
+            document.querySelectorAll('.question').forEach((q, index) => {
+                q .style.display = index + 1 === currentQuestion ? 'block' : 'none';
+            });
+            document.getElementById('nextBtn').style.display = currentQuestion < totalQuestions ? 'block' : 'none';
+            document.getElementById('submitBtn').style.display = currentQuestion === totalQuestions ? 'block' : 'none';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            clearInterval(timerInterval);
+            startTimer();
+            showQuestion();
+        }
+
+        function startTimer() {
+            let timeRemaining = 60;
+            document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                document.getElementById('timer').textContent = `Time remaining: ${timeRemaining} seconds`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    if (currentQuestion < totalQuestions) {
+                        nextQuestion();
+                    } else {
+                        evaluateQuiz();
+                    }
+                }
+            }, 1000);
+        }
+
+        function evaluateQuiz() {
+            score = 0;
+            let summary = '';
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                const correctAnswer = answers[`q${i}`];
+                const questionElement = document.getElementById(`question-${i}`);
+                const options = document.querySelectorAll(`input[name="q${i}"]`);
+                let questionSummary = `<p><strong>Question ${i}: </strong>${questionElement.querySelector('p').innerText}</p>`;
+
+                options.forEach(option => {
+                    const optionLabel = option.parentElement;
+                    if (option.value === correctAnswer) {
+                        optionLabel.style.color = 'green';
+                    } else if (selectedOption && selectedOption.value === option.value) {
+                        optionLabel.style.color = 'red';
+                    }
+                });
+
+                questionSummary += `<div>Answer: <strong>${selectedOption ? selectedOption.value : 'None selected'}</strong></div>`;
+                questionSummary += `<div>Correct answer: <strong>${correctAnswer}</strong></div>`;
+
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    score++;
+                    summary += questionSummary + `<p class="correct">Correct</p>`;
+                } else {
+                    summary += questionSummary + `<p class="incorrect">Incorrect</p>`;
+                }
+            }
+
+            document.getElementById('score').textContent = `Your score: ${score} out of ${totalQuestions}`;
+            document.getElementById('answers-summary').innerHTML = summary;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('timer').style.display = 'none'; 
+            document.querySelectorAll('.question').forEach((q) => q.style.display = 'none');
+
+            clearInterval(timerInterval);
+        }
+
+        window.onload = function() {
+            showQuestion();
+            startTimer();
+        };
+        
+        
+        function nextQuestion() {
+    // Increase the current question counter
+            currentQuestion++;
+
+            // Reset the timer
+            clearInterval(timerInterval); // Stop the current timer
+            startTimer(); // Start the timer from the beginning
+
+            // Show the next question
+            showQuestion();
+        }
+        
+    </script>
+</body>
+</html>
